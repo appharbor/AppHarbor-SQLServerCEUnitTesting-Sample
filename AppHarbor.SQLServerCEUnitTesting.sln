@@ -7,7 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppHarbor.SQLServerCEUnitTe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{142ED690-F090-44FA-8607-C6BA48F32376}"
 	ProjectSection(SolutionItems) = preProject
-		AppHarbor.SQLServerCEUnitTesting.vsmdi = AppHarbor.SQLServerCEUnitTesting.vsmdi
 		Local.testsettings = Local.testsettings
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection

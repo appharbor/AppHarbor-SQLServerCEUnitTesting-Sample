@@ -43,20 +43,14 @@ namespace AppHarbor.SQLServerCEUnitTesting.Test
 			var insertSql = "insert into Test (TestColumn) values ('foo')";
 			ExecuteCommand(insertSql);
 
-			var query = "select * from Test";
+			var query = "select count(*) from Test";
 			int count = 0;
 
 			using (var connection = new SqlCeConnection(_connectionString))
 			{
 				connection.Open();
 				var command = new SqlCeCommand(query, connection);
-				var reader = command.ExecuteReader();
-				
-				while (reader.Read())
-				{
-					count++;
-				}
-				reader.Close();
+				count = (int)command.ExecuteScalar();
 			}
 			Assert.AreEqual<int>(1, count);
 		}
