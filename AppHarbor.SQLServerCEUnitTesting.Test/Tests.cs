@@ -1,4 +1,5 @@
-﻿using System.Data.SqlServerCe;
+﻿using System;
+using System.Data.SqlServerCe;
 using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -37,7 +38,7 @@ namespace AppHarbor.SQLServerCEUnitTesting.Test
 		}
 
 		[TestMethod]
-		public void TestMethod()
+		public void TestSqlCe()
 		{
 			var insertSql = "insert into Test (TestColumn) values ('foo')";
 			ExecuteCommand(insertSql);
@@ -58,6 +59,12 @@ namespace AppHarbor.SQLServerCEUnitTesting.Test
 				reader.Close();
 			}
 			Assert.AreEqual<int>(1, count);
+		}
+
+		[TestMethod]
+		public void ExplodingTest()
+		{
+			throw new Exception("boom");
 		}
 
 		private static void CreateTable()
