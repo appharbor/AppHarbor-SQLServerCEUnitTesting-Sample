@@ -61,18 +61,6 @@ namespace AppHarbor.SQLServerCEUnitTesting.Test
 			Assert.AreEqual<int>(1, count);
 		}
 
-		[TestMethod]
-		public void ExplodingTest()
-		{
-			throw new Exception("boom");
-		}
-
-		[TestMethod]
-		public void FailingTest()
-		{
-			Assert.IsTrue(false);
-		}
-
 		private static void CreateTable()
 		{
 			var createTableSQL = "create table Test(TestColumn nvarchar(10))";
