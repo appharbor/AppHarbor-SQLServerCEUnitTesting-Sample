@@ -54,22 +54,22 @@
     <Compile Include="Tests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SqlServerCe\sqlceca40.dll">
+    <Content Include="sqlceca40.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlServerCe\sqlcecompact40.dll">
+    <Content Include="sqlcecompact40.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlServerCe\sqlceer40EN.dll">
+    <Content Include="sqlceer40EN.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlServerCe\sqlceme40.dll">
+    <Content Include="sqlceme40.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlServerCe\sqlceqp40.dll">
+    <Content Include="sqlceqp40.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="SqlServerCe\sqlcese40.dll">
+    <Content Include="sqlcese40.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
