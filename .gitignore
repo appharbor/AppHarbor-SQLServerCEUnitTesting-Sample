@@ -5,5 +5,6 @@ deploy/*
 *.csproj.user
 *.suo
 *.cache
+*.vsmdi
 *.testsettings
 TestResults/
