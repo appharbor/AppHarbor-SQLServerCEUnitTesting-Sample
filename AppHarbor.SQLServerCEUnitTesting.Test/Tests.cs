@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data.SqlServerCe;
+﻿using System.Data.SqlServerCe;
 using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -10,18 +9,19 @@ namespace AppHarbor.SQLServerCEUnitTesting.Test
 	{
 		private static string _databaseFilename = "database.sdf";
 		private static string _connectionString = string.Format("DataSource=\"{0}\";", _databaseFilename);
-		//var directory = Directory.GetCurrentDirectory();
 
 		[ClassInitialize]
 		public static void ClassInitialize(TestContext testContext)
 		{
-			CreateDatabase();
+			var sqlCeEngine = new SqlCeEngine(_connectionString);
+			sqlCeEngine.CreateDatabase();
 		}
 
 		[TestInitialize]
 		public void TestInitialize()
 		{
-			CreateTable();
+			var createTableSQL = "create table Test(TestColumn nvarchar(10))";
+			ExecuteCommand(createTableSQL);
 		}
 
 		[ClassCleanup]
@@ -61,18 +61,6 @@ namespace AppHarbor.SQLServerCEUnitTesting.Test
 			Assert.AreEqual<int>(1, count);
 		}
 
-		private static void CreateTable()
-		{
-			var createTableSQL = "create table Test(TestColumn nvarchar(10))";
-			ExecuteCommand(createTableSQL);
-		}
-
-		private static void CreateDatabase()
-		{
-			var sqlCeEngine = new SqlCeEngine(_connectionString);
-			sqlCeEngine.CreateDatabase();
-		}
-
 		private static void ExecuteCommand(string sql)
 		{
 			using (var connection = new SqlCeConnection(_connectionString))
@@ -80,16 +68,6 @@ namespace AppHarbor.SQLServerCEUnitTesting.Test
 				connection.Open();
 				var command = new SqlCeCommand(sql, connection);
 				command.ExecuteNonQuery();
-			}
-		}
-
-		private static SqlCeDataReader ExecuteQuery(string sql)
-		{
-			using (var connection = new SqlCeConnection(_connectionString))
-			{
-				connection.Open();
-				var command = new SqlCeCommand(sql, connection);
-				return command.ExecuteReader();
 			}
 		}
 	}
